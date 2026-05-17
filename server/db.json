@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "1778844717581",
+      "name": "zain",
+      "email": "zain@gmail.com",
+      "accountType": "Receiver",
+      "passwordHash": "$2a$08$xQZbOVEy2fo/00pFnXfA8uD/GcnJOH72fvB1g1rlCwI0CABcrxGeq",
+      "createdAt": "2026-05-15T11:31:57.581Z"
+    },
+    {
+      "id": "1779025270675",
+      "name": "fakhar azam",
+      "email": "fakhar321@gmail.com",
+      "accountType": "Receiver",
+      "passwordHash": "$2a$08$OMc/XosqtnJGKrqv32srYervJWSc2Shz/ivhlTeKI3HtMdk4.6pEa",
+      "createdAt": "2026-05-17T13:41:10.675Z"
+    },
+    {
+      "id": "1779026130175",
+      "name": "Ajmal",
+      "email": "ajmal321@gmail.com",
+      "accountType": "Donor",
+      "passwordHash": "$2a$08$m.oI2bs790dEoCd/.6MqfeDkHLpMUWQ7ICi7.XfWnY0bJSenqhFna",
+      "createdAt": "2026-05-17T13:55:30.176Z"
+    }
+  ],
+  "customers": []
+}
