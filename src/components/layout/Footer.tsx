@@ -53,13 +53,13 @@ export const Footer = () => {
             
             {/* Contact Info */}
             <div className="space-y-3">
-              <a href="tel:+923136277217" className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors">
+              <a href="tel:+1234567890" className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" />
-                <span>+92 (313) 6277-217</span>
+                <span>+1 (234) 567-890</span>
               </a>
-              <a href="mailto:zainshahid1698@gmail.com" className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors">
+              <a href="mailto:contact@bloodbridge.org" className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" />
-                <span>zainshahid1698@gmail.com</span>
+                <span>contact@bloodbridge.org</span>
               </a>
               <div className="flex items-center gap-3 text-background/70">
                 <MapPin className="h-4 w-4" />
