@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Heart, Menu, X, Droplets, User, LogIn, UserPlus } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,7 +16,15 @@ const navLinks = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch (e) {}
+  }, []);
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -51,23 +60,38 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Auth Buttons */}
+          {/* Auth Buttons / User */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button asChild variant="ghost" size="sm" className="gap-2">
-              <Link to="/login">
-                <LogIn className="h-4 w-4" />
-                Login
+            {user ? (
+              <Link to="/dashboard" className="flex items-center gap-2 hover:opacity-90">
+                <Avatar>
+                  <AvatarImage src="/placeholder.svg" alt={user?.name || user?.email || "User"} />
+                  <AvatarFallback>{(user?.name || user?.email || "U")[0]}</AvatarFallback>
+                </Avatar>
+                <span className="font-medium">{user?.name || user?.email}</span>
               </Link>
-            </Button>
+            ) : (
+              <>
+                <Button asChild variant="ghost" size="sm" className="gap-2">
+                  <Link to="/login">
+                    <LogIn className="h-4 w-4" />
+                    Login
+                  </Link>
+                </Button>
+                <Button asChild variant="default" size="sm" className="gap-2">
+                  <Link to="/signup">
+                    <UserPlus className="h-4 w-4" />
+                    Sign up
+                  </Link>
+                </Button>
+              </>
+            )}
+
             <Button asChild variant="default" size="sm" className="gap-2">
-              <Link to="/signup">
-                <UserPlus className="h-4 w-4" />
-                Sign up
+              <Link to="/donate">
+                <Heart className="h-4 w-4" />
+                Donate Now
               </Link>
-            </Button>
-            <Button variant="default" size="sm" className="gap-2">
-              <Heart className="h-4 w-4" />
-              Donate Now
             </Button>
           </div>
 
@@ -108,21 +132,39 @@ export const Navbar = () => {
             </Link>
           ))}
           <div className="pt-4 border-t border-border/50 flex flex-col gap-2">
-            <Button asChild variant="ghost" className="w-full justify-center gap-2">
-              <Link to="/login">
-                <LogIn className="h-4 w-4" />
-                Login
+            {user ? (
+              <Link to="/dashboard" onClick={() => setIsOpen(false)} className="w-full flex items-center gap-3 p-3 rounded-lg bg-background hover:bg-secondary transition-colors">
+                <Avatar>
+                  <AvatarImage src="/placeholder.svg" alt={user?.name || user?.email || "User"} />
+                  <AvatarFallback>{(user?.name || user?.email || "U")[0]}</AvatarFallback>
+                </Avatar>
+                <div className="text-left">
+                  <div className="font-medium">{user?.name || user?.email}</div>
+                  <div className="text-sm text-muted-foreground">View profile</div>
+                </div>
               </Link>
-            </Button>
+            ) : (
+              <>
+                <Button asChild variant="ghost" className="w-full justify-center gap-2">
+                  <Link to="/login" onClick={() => setIsOpen(false)}>
+                    <LogIn className="h-4 w-4" />
+                    Login
+                  </Link>
+                </Button>
+                <Button asChild variant="default" className="w-full justify-center gap-2">
+                  <Link to="/signup" onClick={() => setIsOpen(false)}>
+                    <UserPlus className="h-4 w-4" />
+                    Sign up
+                  </Link>
+                </Button>
+              </>
+            )}
+
             <Button asChild variant="default" className="w-full justify-center gap-2">
-              <Link to="/signup">
-                <UserPlus className="h-4 w-4" />
-                Sign up
+              <Link to="/donate" onClick={() => setIsOpen(false)}>
+                <Heart className="h-4 w-4" />
+                Donate Now
               </Link>
-            </Button>
-            <Button variant="default" className="w-full justify-center gap-2">
-              <Heart className="h-4 w-4" />
-              Donate Now
             </Button>
           </div>
         </div>
