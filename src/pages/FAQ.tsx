@@ -4,6 +4,7 @@ import { CTASection } from "@/components/home/CTASection";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle, Heart, Droplet, Shield, Clock } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const faqCategories = [
   {
@@ -179,9 +180,9 @@ const FAQ = () => {
                 <a href="mailto:support@bloodbridge.org" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors">
                   Email Support
                 </a>
-                <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border text-foreground rounded-xl font-semibold hover:bg-accent transition-colors">
+                <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border text-foreground rounded-xl font-semibold hover:bg-accent transition-colors">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
