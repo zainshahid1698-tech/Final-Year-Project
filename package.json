@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://zainshahid1698-tech.github.io/FYP/",
+  "homepage": "https://zainshahid1698-tech.github.io/Final-Year-Project/",
   "scripts": {
     "dev": "vite",
     "server": "node server/index.js",
