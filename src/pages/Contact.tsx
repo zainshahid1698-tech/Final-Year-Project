@@ -14,12 +14,12 @@ const contactInfo = [
     icon: Phone,
     title: "Phone",
     details: ["115", "1122"],
-    description: "Mon-Fri from 8am to 7pm", "Sat-Sun from 8am to 5pm",
+    description: "Mon-Fri from 8am to 6pm",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["zainshahid1698@gmail.com"],
+    details: ["support@bloodbridge.org", "info@bloodbridge.org"],
     description: "We'll respond within 24 hours",
   },
   {
